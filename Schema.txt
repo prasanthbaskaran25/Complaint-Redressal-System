@@ -1,0 +1,53 @@
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `tbl_complaints` (
+  `ticket_id` int NOT NULL,
+  `complaint` varchar(255) DEFAULT NULL,
+  `customer_email` varchar(255) DEFAULT NULL,
+  `pincode` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ticket_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `tbl_customer` (
+  `customer_email` varchar(255) NOT NULL,
+  `customer_address` varchar(255) DEFAULT NULL,
+  `customer_mobile` varchar(255) DEFAULT NULL,
+  `customer_name` varchar(255) DEFAULT NULL,
+  `customer_password` varchar(255) DEFAULT NULL,
+  `customer_pincode` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`customer_email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `tbl_engineer` (
+  `engineer_email` varchar(255) NOT NULL,
+  `engineer_name` varchar(255) DEFAULT NULL,
+  `engineer_password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`engineer_email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `tbl_engineer_duty` (
+  `engineer_duty_id` int NOT NULL,
+  `customer_email` varchar(255) DEFAULT NULL,
+  `engineer_email` varchar(255) DEFAULT NULL,
+  `ticket_id` int NOT NULL,
+  PRIMARY KEY (`engineer_duty_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `tbl_feedbacks` (
+  `feedback_id` int NOT NULL,
+  `customer_email` varchar(255) DEFAULT NULL,
+  `feedback` varchar(255) DEFAULT NULL,
+  `ticket_id` int NOT NULL,
+  PRIMARY KEY (`feedback_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `tbl_manager` (
+  `manager_email` varchar(255) NOT NULL,
+  `manager_name` varchar(255) DEFAULT NULL,
+  `manager_password` varchar(255) DEFAULT NULL,
+  `manager_pincode` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`manager_email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
